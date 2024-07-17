@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = "batdongsan.spiders"
 USER_AGENT = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -53,7 +53,21 @@ COOKIES_ENABLED = False
 #DOWNLOADER_MIDDLEWARES = {
 #    "batdongsan.middlewares.BatdongsanDownloaderMiddleware": 543,
 #}
+# DOWNLOADER_MIDDLEWARES = {
+#     'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+#     'advanced-scrapy-proxies.RandomProxy': 100,
+#     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110
+# }
 
+## Proxy mode
+	# -1: NO_PROXY, middleware is configured but does nothing. Useful when needed to automate the selection of the mode
+	# 0: RANDOMIZE_PROXY_EVERY_REQUESTS, every requrest use a different proxy
+	# 1: RANDOMIZE_PROXY_ONCE, selects one proxy for the whole execution from the input list
+	# 2: SET_CUSTOM_PROXY, use the proxy specified with option CUSTOM_PROXY
+	# 3: REMOTE_PROXY_LIST, use the proxy list at the specified URL
+PROXY_MODE = 3
+
+PROXY_LIST ='https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt'
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
@@ -62,9 +76,9 @@ COOKIES_ENABLED = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "batdongsan.pipelines.BatdongsanPipeline": 300,
-#}
+ITEM_PIPELINES = {
+   "batdongsan.pipelines.BatdongsanPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -91,3 +105,6 @@ COOKIES_ENABLED = False
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+MONGO_URI = 'mongodb://localhost:27017'
+MONGO_DATABASE = 'real_estate_hanoi'

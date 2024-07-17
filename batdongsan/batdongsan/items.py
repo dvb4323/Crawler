@@ -10,6 +10,7 @@ class BatdongsanItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     title = scrapy.Field()
+    url = scrapy.Field()
     road_before_width = scrapy.Field()
     floors = scrapy.Field()
     bedrooms = scrapy.Field()
