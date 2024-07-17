@@ -7,13 +7,13 @@ class BatdongsanSpiderSpider(scrapy.Spider):
     name = 'batdongsan_spider'
     allowed_domains = ['alonhadat.com.vn']
     start_urls = [
-        'https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/ha-noi/704/quan-bac-tu-liem/trang--9.html',
+        'https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/ha-noi/704/quan-bac-tu-liem/trang--45.html',
         # 'https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/ha-noi/407/quan-ba-dinh/trang--2.html'
         # 'https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/ha-noi/408/quan-cau-giay.html',
         # 'https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/ha-noi/435/huyen-ung-hoa.html',
         # 'https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/ha-noi/409/quan-dong-da.html',
     ]
-    page_number = 10
+    page_number = 46
 
     def start_requests(self):
         # Read URLs from file
@@ -139,7 +139,7 @@ class BatdongsanSpiderSpider(scrapy.Spider):
 
             # Scrap using pagination
             next_page = 'https://alonhadat.com.vn/nha-dat/can-ban/nha-dat/ha-noi/704/quan-bac-tu-liem/trang--' + str(BatdongsanSpiderSpider.page_number) +'.html'
-            if BatdongsanSpiderSpider.page_number <= 17:
+            if BatdongsanSpiderSpider.page_number <= 53:
                 BatdongsanSpiderSpider.page_number += 1
                 yield response.follow(next_page, callback=self.parse)
 
