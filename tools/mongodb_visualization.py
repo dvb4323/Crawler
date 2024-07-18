@@ -21,7 +21,7 @@ def convert_price(price):
 # Connect to MongoDB
 client = pymongo.MongoClient("mongodb://localhost:27017/")  # Update with your MongoDB connection string
 db = client['real_estate_hanoi']  # Update with your database name
-collection = db['huyen_my_duc']  # Update with your collection name
+collection = db['huyen_thuong_tin']  # Update with your collection name
 
 # Read data from MongoDB
 data = list(collection.find())

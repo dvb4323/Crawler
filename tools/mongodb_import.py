@@ -3,7 +3,7 @@ import json
 from pymongo import MongoClient
 from pathlib import Path
 
-def import_json_to_mongodb(json_dir, new_db_name, mongo_uri="mongodb+srv://vanbinh4323:rpFhQXTYQS1k2Ies@realestate.hjhebii.mongodb.net/"):
+def import_json_to_mongodb(json_dir, new_db_name, mongo_uri="mongodb://localhost:27017/"):
     # Connect to MongoDB
     client = MongoClient(mongo_uri)
     db = client['real_estate_hanoi']
