@@ -42,8 +42,8 @@ avg_price = df.agg(avg("price_cleaned").alias("avg_price"))
 avg_price.show()
 
 # Filter data based on a condition
-# filtered_df = df.filter(df["price_cleaned"] > 10)
-filtered_df = df.filter(df["area"] > 50)
+filtered_df = df.filter(df["price_cleaned"] > 10)
+# filtered_df = df.filter(df["area"] > 50)
 # Show the filtered data
 filtered_df.select("area", "price", "location", "title").show()
 
